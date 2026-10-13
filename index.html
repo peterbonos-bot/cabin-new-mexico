@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- GitHub Pages version: images are separate files in images/. -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sky Cabin | Jemez Mountains, New Mexico</title>
+<meta name="description" content="[One sentence describing the cabin — where it is and what makes it worth booking.]">
+
+<!--
+========================================================================
+  HOW TO EDIT THIS SITE — read me first
+========================================================================
+  This is one plain HTML file. You can edit it with any text editor
+  (Notepad, TextEdit, VS Code, etc). No coding experience needed.
+
+  1. TEXT: Search this file for square brackets, like Sky Cabin.
+     Replace the bracketed placeholder with your real text and delete
+     the brackets. Leave everything else (the <tags>) alone.
+
+  2. PHOTOS: Search for "PHOTO PLACEHOLDER". Each one is a div styled
+     to look like an empty photo frame. To add a real photo:
+       a. Put your image file in the same folder as this HTML file
+          (for example: images/exterior.jpg)
+       b. Find the matching <div class="photo ..."> block
+       c. Replace style="background-image:none" with
+          style="background-image:url('images/exterior.jpg')"
+       d. Delete the <span class="ph-label">...</span> line inside it
+          (that's the placeholder text, no longer needed once there's
+          a real photo)
+
+  3. LINKS: Search for "BOOKING_LINK_HERE" and replace it with your
+     Airbnb / Vrbo / direct booking link. It appears in a few places.
+
+  4. COLORS / FONTS: If you want to change the look, everything is
+     controlled in the <style> block below under "TOKENS" — change
+     the values there and it updates the whole site.
+
+  5. TO PUBLISH: once you're happy with it, this single file can be
+     uploaded to any basic web host (Netlify, GitHub Pages, Squarespace
+     "code block" import, etc). Just make sure the images/ folder goes
+     up alongside it.
+========================================================================
+-->
+
+<style>
+  /* ============ TOKENS — change these to restyle the whole site ============ */
+  :root{
+    --bark:      #3B2A22;   /* deep adobe brown */
+    --bark-2:    #51382D;   /* warm earthen card surface */
+    --moss:      #238B8E;   /* turquoise accent */
+    --birch:     #F3E2B8;   /* sun-warmed sand */
+    --birch-2:   #D8BC77;   /* golden sand */
+    --ink:       #241F16;   /* near-black text on light backgrounds */
+    --ember:     #1C9A9A;   /* turquoise CTA */
+    --ember-dark:#147A7A;
+    --brass:     #F2C94C;   /* sun yellow accent */
+
+    --display: 'Rye', Georgia, serif;
+    --display-soft: 'Bree Serif', Georgia, serif;
+    --body: 'Source Sans 3', -apple-system, sans-serif;
+    --mono: 'Roboto Mono', ui-monospace, monospace;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family: var(--body);
+    background: var(--birch);
+    color: var(--ink);
+    line-height: 1.6;
+  }
+  img{max-width:100%; display:block;}
+  a{color:inherit;}
+  .wrap{max-width:1100px; margin:0 auto; padding:0 32px;}
+  section{position:relative;}
+
+  /* ============ utility: placeholder photo frames ============ */
+  .photo{
+    background-color: var(--birch-2);
+    background-size: cover;
+    background-position: center;
+    display:flex; align-items:center; justify-content:center;
+    text-align:center;
+    border: 1px dashed rgba(36,31,22,0.35);
+    position:relative;
+    overflow:hidden;
+  }
+  .ph-label{
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing:.02em;
+    color: rgba(36,31,22,0.55);
+    padding: 8px 14px;
+    max-width: 220px;
+  }
+
+  /* ============ nav ============ */
+  header{
+    position: sticky; top:0; z-index: 50;
+    background: var(--bark);
+    color: var(--birch);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 18px 32px;
+    max-width:1100px; margin:0 auto;
+  }
+  .nav .brand{
+    font-family: var(--display);
+    font-size: 20px;
+    font-weight:600;
+    letter-spacing:.01em;
+  }
+  .nav .brand span{color: var(--brass);}
+  .nav ul{
+    list-style:none;
+    display:flex; gap:28px;
+  }
+  .nav ul a{
+    font-size:14px;
+    text-decoration:none;
+    color: var(--birch);
+    opacity:.85;
+    transition: opacity .2s;
+  }
+  .nav ul a:hover{opacity:1;}
+  .nav-cta{
+    display:inline-block;
+    font-family: var(--mono);
+    font-size:13px;
+    padding:9px 16px;
+    border:1px solid var(--brass);
+    color: var(--brass);
+    text-decoration:none;
+    border-radius:2px;
+  }
+  .nav-toggle{display:none; background:none; border:none; color:var(--birch); font-size:24px;}
+
+  @media (max-width:760px){
+    .nav ul{display:none;}
+    .nav-toggle{display:block;}
+  }
+
+  /* ============ hero ============ */
+  .hero{
+    background:
+      linear-gradient(90deg, rgba(42,32,24,.91) 0%, rgba(42,32,24,.72) 48%, rgba(42,32,24,.34) 100%),
+      url("images/sky-cabin-exterior.jpg") center/cover no-repeat;
+    color: var(--birch);
+    padding: 90px 32px 110px;
+    overflow:hidden;
+    position:relative;
+  }
+  .contour-lines{
+    position:absolute; inset:0;
+    opacity:.35;
+    pointer-events:none;
+  }
+  .hero-inner{
+    max-width:1100px; margin:0 auto;
+    position:relative; z-index:2;
+  }
+  .eyebrow{
+    font-family: var(--mono);
+    font-size:13px;
+    color: var(--brass);
+    letter-spacing:.08em;
+    text-transform: lowercase;
+    margin-bottom: 22px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{
+    content:"";
+    width:22px; height:1px;
+    background: var(--brass);
+    display:inline-block;
+  }
+  .hero h1{
+    font-family: var(--display);
+    font-weight:600;
+    font-size: clamp(40px, 6.4vw, 78px);
+    line-height: 0.98;
+    max-width: 780px;
+    letter-spacing:-.01em;
+  }
+  .hero .tagline{
+    font-style: italic;
+    font-family: var(--display);
+    font-weight:500;
+    font-size: clamp(18px,2.4vw,24px);
+    color: var(--birch);
+    opacity:.8;
+    margin-top: 22px;
+    max-width: 480px;
+  }
+  .hero-meta{
+    display:flex; gap:36px; flex-wrap:wrap;
+    margin-top: 48px;
+    font-family: var(--mono);
+    font-size: 13px;
+  }
+  .hero-meta div{
+    display:flex; flex-direction:column; gap:4px;
+    border-left: 1px solid rgba(238,231,214,0.25);
+    padding-left: 14px;
+  }
+  .hero-meta strong{
+    font-size: 18px;
+    font-family: var(--body);
+    font-weight:600;
+  }
+  .hero-meta span{opacity:.6;}
+  .hero-buttons{
+    display:flex; gap:16px; margin-top:48px; flex-wrap:wrap;
+  }
+  .btn-primary{
+    background: var(--ember);
+    color: var(--birch);
+    text-decoration:none;
+    padding: 15px 28px;
+    font-size:15px;
+    font-weight:500;
+    border-radius:2px;
+    transition: background .2s;
+  }
+  .btn-primary:hover{background: var(--ember-dark);}
+  .btn-ghost{
+    border:1px solid rgba(238,231,214,0.4);
+    color: var(--birch);
+    text-decoration:none;
+    padding: 15px 28px;
+    font-size:15px;
+    border-radius:2px;
+  }
+
+  /* ============ intro / story ============ */
+  .story{
+    padding: 110px 32px;
+  }
+  .story-grid{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items:center;
+  }
+  .kicker{
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color: var(--moss);
+    margin-bottom: 18px;
+  }
+  .story h2{
+    font-family: var(--display);
+    font-size: clamp(30px, 3.6vw, 44px);
+    font-weight:600;
+    line-height:1.1;
+    margin-bottom: 22px;
+  }
+  .story p{
+    font-size:16px;
+    color: rgba(36,31,22,0.8);
+    max-width: 46ch;
+  }
+  .story p + p{margin-top:16px;}
+  .story .photo{
+    aspect-ratio: 4/5;
+    border-radius: 3px;
+  }
+  @media (max-width:820px){
+    .story-grid{grid-template-columns:1fr;}
+  }
+
+  /* ============ amenities ============ */
+  .amenities{
+    background: var(--bark);
+    color: var(--birch);
+    padding: 100px 32px;
+  }
+  .amenities .kicker{color: var(--brass);}
+  .amenities h2{
+    font-family: var(--display-soft, var(--display));
+    font-size: clamp(28px,3.4vw,40px);
+    font-weight:600;
+    margin-bottom: 56px;
+    max-width: 560px;
+  }
+  .amenity-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(238,231,214,0.12);
+    border: 1px solid rgba(238,231,214,0.12);
+  }
+  .amenity{
+    background: var(--bark);
+    padding: 32px 28px;
+  }
+  .amenity .num{
+    font-family: var(--mono);
+    font-size:12px;
+    color: var(--brass);
+    display:block;
+    margin-bottom:18px;
+  }
+  .amenity h3{
+    font-family: var(--display);
+    font-size:19px;
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  .amenity p{
+    font-size:14px;
+    color: rgba(238,231,214,0.65);
+  }
+  @media (max-width:820px){
+    .amenity-grid{grid-template-columns: 1fr;}
+  }
+
+  /* ============ gallery ============ */
+  .gallery{padding: 110px 32px;}
+  .gallery-head{
+    display:flex; justify-content:space-between; align-items:flex-end;
+    margin-bottom: 44px; flex-wrap:wrap; gap:16px;
+  }
+  .gallery-head h2{
+    font-family: var(--display-soft, var(--display));
+    font-size: clamp(28px,3.4vw,40px);
+    font-weight:600;
+  }
+  .gallery-head p{
+    font-family: var(--mono);
+    font-size:13px;
+    color: rgba(36,31,22,0.55);
+    max-width: 340px;
+  }
+  .gallery-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 160px;
+    gap: 14px;
+  }
+  .gallery-grid .photo{border-radius:2px; border-style:dashed;}
+  .g1{grid-column: span 2; grid-row: span 2;}
+  .g2{grid-column: span 2; grid-row: span 1;}
+  .g3{grid-column: span 1; grid-row: span 1;}
+  .g4{grid-column: span 1; grid-row: span 1;}
+  .g5{grid-column: span 2; grid-row: span 1;}
+  .g6{grid-column: span 2; grid-row: span 1;}
+  @media (max-width:820px){
+    .gallery-grid{grid-template-columns: repeat(2,1fr); grid-auto-rows:150px;}
+    .g1{grid-column:span 2; grid-row:span 2;}
+    .g2,.g5,.g6{grid-column:span 2; grid-row:span 1;}
+    .g3,.g4{grid-column:span 1;}
+  }
+
+  /* ============ location ============ */
+  .location{
+    background: var(--birch-2);
+    padding: 110px 32px;
+  }
+  .location-grid{
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 70px;
+  }
+  .location h2{
+    font-family: var(--display-soft, var(--display));
+    font-size: clamp(28px,3.4vw,40px);
+    font-weight:600;
+    margin-bottom:18px;
+  }
+  .location > .location-grid > div:first-child > p{
+    max-width:48ch;
+    color: rgba(36,31,22,0.8);
+    margin-bottom: 40px;
+  }
+  .trail{
+    border-left: 1px solid rgba(36,31,22,0.25);
+  }
+  .trail-item{
+    position:relative;
+    padding: 0 0 34px 30px;
+  }
+  .trail-item::before{
+    content:"";
+    position:absolute; left:-5px; top:4px;
+    width:9px; height:9px;
+    border-radius:50%;
+    background: var(--ember);
+  }
+  .trail-item .mi{
+    font-family: var(--mono);
+    font-size:12px;
+    color: var(--moss);
+    display:block;
+    margin-bottom:4px;
+  }
+  .trail-item h4{
+    font-family: var(--display);
+    font-weight:600;
+    font-size:18px;
+    margin-bottom:4px;
+  }
+  .trail-item p{font-size:14px; color: rgba(36,31,22,0.7);}
+  .location .photo{
+    aspect-ratio: 3/4;
+    align-self:start;
+    border-radius:3px;
+  }
+  @media (max-width:820px){
+    .location-grid{grid-template-columns:1fr; gap:40px;}
+  }
+
+  /* ============ reviews ============ */
+  .reviews{padding: 100px 32px; text-align:center;}
+  .reviews .kicker{justify-content:center; display:flex;}
+  .reviews blockquote{
+    font-family: var(--display);
+    font-style: italic;
+    font-weight:500;
+    font-size: clamp(22px,3vw,32px);
+    max-width: 760px;
+    margin: 0 auto 26px;
+    line-height:1.35;
+  }
+  .reviews cite{
+    font-family: var(--mono);
+    font-style:normal;
+    font-size:13px;
+    color: rgba(36,31,22,0.55);
+  }
+
+  /* ============ booking CTA ============ */
+  .booking{
+    background: var(--bark);
+    color: var(--birch);
+    padding: 120px 32px;
+    text-align:center;
+  }
+  .booking h2{
+    font-family: var(--display);
+    font-weight:600;
+    font-size: clamp(32px,5vw,56px);
+    max-width: 640px;
+    margin: 0 auto 20px;
+  }
+  .booking p{
+    color: rgba(238,231,214,0.7);
+    max-width: 480px;
+    margin: 0 auto 40px;
+  }
+  .booking-details{
+    display:flex; justify-content:center; gap:40px;
+    margin-top: 56px;
+    font-family: var(--mono);
+    font-size:13px;
+    color: rgba(238,231,214,0.6);
+    flex-wrap:wrap;
+  }
+  .booking-steps{
+    display:flex; justify-content:center; gap:36px;
+    max-width: 760px; margin: 0 auto 44px;
+    flex-wrap:wrap; text-align:left;
+  }
+  .booking-step{
+    flex: 1 1 180px;
+    max-width: 220px;
+  }
+  .booking-step .bs-num{
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--brass);
+    display:block;
+    margin-bottom: 8px;
+  }
+  .booking-step p{
+    font-size: 14px;
+    color: rgba(238,231,214,0.75);
+    line-height:1.5;
+  }
+
+  /* ============ New Mexico sand-inspired ornament ============ */
+  .folk-band{
+    height:30px;
+    background-color:#D8BC77;
+    background-image:
+      linear-gradient(60deg, transparent 42%, var(--ember) 43% 49%, transparent 50% 100%),
+      linear-gradient(-60deg, transparent 42%, var(--brass) 43% 49%, transparent 50% 100%),
+      radial-gradient(circle at 50% 50%, rgba(59,42,34,.25) 0 2px, transparent 2.5px);
+    background-size:34px 30px,34px 30px,17px 15px;
+    border-top:4px solid var(--bark);
+    border-bottom:4px solid var(--bark);
+  }
+  .folk-medallion{
+    width:82px;height:82px;border:3px solid var(--ember);transform:rotate(45deg);
+    display:grid;place-items:center;margin:0 auto 32px;
+    background:linear-gradient(135deg,#E8CF86,#F3E2B8);
+    box-shadow:0 0 0 7px var(--birch),0 0 0 10px var(--brass);
+  }
+  .folk-medallion::before{content:"◆";transform:rotate(-45deg);font-size:30px;color:var(--ember);}
+  .photo{border-color:rgba(59,42,34,.24);}
+  .folk-tile{
+    background-color:#E0C173;
+    background-image:
+      linear-gradient(45deg, transparent 36%, rgba(28,154,154,.95) 37% 48%, transparent 49% 100%),
+      linear-gradient(-45deg, transparent 36%, rgba(242,201,76,.96) 37% 48%, transparent 49% 100%),
+      radial-gradient(circle at 50% 50%, rgba(59,42,34,.22) 0 2px, transparent 2.5px);
+    background-position:0 0,0 0,18px 18px;
+    background-size:38px 38px,38px 38px,36px 36px;
+  }
+
+  /* ============ footer ============ */
+  footer{
+    background: var(--bark);
+    color: rgba(238,231,214,0.5);
+    padding: 30px 32px 40px;
+    border-top: 1px solid rgba(238,231,214,0.12);
+    text-align:center;
+    font-size:13px;
+  }
+  footer a{color: var(--brass); text-decoration:none;}
+
+  /* v2 refinement: slightly varied regional typography + warmer section rhythm */
+  .story h2, .location h2, .gallery-head h2 {
+    font-family: var(--display-soft, var(--display));
+    letter-spacing: .005em;
+  }
+  .amenities h2, .booking h2 {
+    letter-spacing: .01em;
+  }
+  .story { background: #F2E6CC; }
+  .gallery { background: #EEDDBF; }
+  .location { background: #E3CDA8; }
+  .kicker { color: var(--turquoise-dark, #1F6661); }
+  .nav-cta { border-color: var(--sun, #D9A93A); color: var(--sun, #D9A93A); }
+
+
+  /* v3: New Mexico folk-art inspired motif system
+     References visual rhythms found in Rio Grande weaving, colcha embroidery,
+     and stamped-tin work. Avoids reproducing sacred ceremonial symbols. */
+
+  .folk-band{
+    height: 34px;
+    background:
+      linear-gradient(135deg, transparent 0 34%, #287F7A 35% 49%, transparent 50% 100%) 0 0/34px 34px,
+      linear-gradient(45deg, transparent 0 34%, #D9A93A 35% 49%, transparent 50% 100%) 17px 0/34px 34px,
+      #E7D3B2;
+    border-top: 1px solid rgba(41,35,28,.18);
+    border-bottom: 1px solid rgba(41,35,28,.18);
+  }
+
+  .lozenge-rule{
+    height:18px;
+    margin:28px 0;
+    background:
+      linear-gradient(45deg, transparent 35%, #287F7A 36% 49%, transparent 50%) 0 0/36px 18px,
+      linear-gradient(-45deg, transparent 35%, #D9A93A 36% 49%, transparent 50%) 18px 0/36px 18px;
+    opacity:.9;
+  }
+
+  .folk-floral{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    color:#9B573C;
+    font-family:var(--display-soft, var(--display));
+    letter-spacing:.08em;
+  }
+
+  .folk-floral::before,
+  .folk-floral::after{
+    content:"✦";
+    color:#D9A93A;
+    font-size:.9em;
+  }
+
+  .story::after,
+  .gallery::after{
+    content:"";
+    display:block;
+    width:min(680px, 80%);
+    height:28px;
+    margin:54px auto 0;
+    background:
+      radial-gradient(circle at 12px 14px, #D9A93A 0 3px, transparent 4px),
+      radial-gradient(circle at 30px 14px, #287F7A 0 3px, transparent 4px),
+      radial-gradient(circle at 48px 14px, #9B573C 0 3px, transparent 4px);
+    background-size:60px 28px;
+    opacity:.75;
+  }
+
+  .amenity:nth-child(odd){
+    box-shadow: inset 0 3px 0 #287F7A;
+  }
+
+  .amenity:nth-child(even){
+    box-shadow: inset 0 3px 0 #D9A93A;
+  }
+
+  .nav-cta{
+    box-shadow: inset 0 0 0 1px rgba(217,169,58,.2);
+  }
+
+  .hero h1{
+    text-shadow:0 2px 0 rgba(0,0,0,.08);
+  }
+
+  .gallery-grid .photo{
+    outline: 3px double rgba(40,127,122,.35);
+    outline-offset: -7px;
+  }
+
+  .booking{
+    border-top: 8px solid #D9A93A;
+  }
+
+  footer{
+    position:relative;
+  }
+
+  footer::before{
+    content:"✦  ✦  ✦";
+    display:block;
+    margin-bottom:14px;
+    color:#D9A93A;
+    letter-spacing:.45em;
+  }
+
+
+  /* v6 — rug-inspired site-wide motif system
+     Uses stepped diamonds, chevrons, and woven stripe rhythms inspired by
+     the geometric rug visible in the interior imagery. */
+
+  :root{
+    --rug-turq:#287F7A;
+    --rug-gold:#D9A93A;
+    --rug-rust:#9B573C;
+    --rug-sand:#E7D3B2;
+    --rug-cream:#F4E9D2;
+    --rug-ink:#29231C;
+  }
+
+  .rug-strip{
+    height:42px;
+    background:
+      linear-gradient(135deg, transparent 0 35%, var(--rug-turq) 36% 48%, transparent 49% 100%) 0 0/42px 42px,
+      linear-gradient(45deg, transparent 0 35%, var(--rug-gold) 36% 48%, transparent 49% 100%) 21px 0/42px 42px,
+      linear-gradient(90deg, transparent 0 23%, rgba(155,87,60,.92) 24% 28%, transparent 29% 71%, rgba(155,87,60,.92) 72% 76%, transparent 77%) 0 0/84px 42px,
+      var(--rug-sand);
+    border-top:1px solid rgba(41,35,28,.22);
+    border-bottom:1px solid rgba(41,35,28,.22);
+  }
+
+  .rug-title{
+    position:relative;
+    display:inline-block;
+    padding-bottom:16px;
+  }
+
+  .rug-title::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:min(260px,100%);
+    height:8px;
+    background:
+      linear-gradient(135deg, transparent 0 35%, var(--rug-turq) 36% 49%, transparent 50%) 0 0/24px 8px,
+      linear-gradient(45deg, transparent 0 35%, var(--rug-gold) 36% 49%, transparent 50%) 12px 0/24px 8px;
+  }
+
+  .hero{
+    background:
+      linear-gradient(rgba(23,33,27,.94), rgba(23,33,27,.94)),
+      repeating-linear-gradient(
+        90deg,
+        transparent 0 34px,
+        rgba(217,169,58,.06) 34px 36px,
+        transparent 36px 70px,
+        rgba(40,127,122,.06) 70px 72px
+      ),
+      var(--bark);
+  }
+
+  .hero::after{
+    content:"";
+    position:absolute;
+    left:0; right:0; bottom:0;
+    height:18px;
+    background:
+      linear-gradient(135deg, transparent 0 35%, var(--rug-gold) 36% 49%, transparent 50%) 0 0/36px 18px,
+      linear-gradient(45deg, transparent 0 35%, var(--rug-turq) 36% 49%, transparent 50%) 18px 0/36px 18px;
+    opacity:.95;
+  }
+
+  .story,
+  .gallery,
+  .location{
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        rgba(40,127,122,.025) 0 1px,
+        transparent 1px 18px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(217,169,58,.022) 0 1px,
+        transparent 1px 18px
+      );
+  }
+
+  .amenities{
+    position:relative;
+    overflow:hidden;
+  }
+
+  .amenities::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+    opacity:.12;
+    background:
+      linear-gradient(135deg, transparent 0 40%, var(--rug-gold) 41% 47%, transparent 48%) 0 0/64px 64px,
+      linear-gradient(45deg, transparent 0 40%, var(--rug-turq) 41% 47%, transparent 48%) 32px 0/64px 64px;
+  }
+
+  .amenities .wrap{ position:relative; z-index:1; }
+
+  .kicker{
+    display:inline-flex !important;
+    align-items:center;
+    gap:10px;
+  }
+
+  .kicker::before,
+  .kicker::after{
+    content:"◆";
+    font-size:.72em;
+    color:var(--rug-gold);
+  }
+
+  .amenity{
+    position:relative;
+  }
+
+  .amenity::after{
+    content:"";
+    position:absolute;
+    left:22px;
+    right:22px;
+    bottom:14px;
+    height:4px;
+    background:
+      linear-gradient(90deg,
+        var(--rug-turq) 0 24%,
+        transparent 24% 28%,
+        var(--rug-gold) 28% 52%,
+        transparent 52% 56%,
+        var(--rug-rust) 56% 80%,
+        transparent 80% 84%,
+        var(--rug-turq) 84% 100%);
+    opacity:.7;
+  }
+
+  .gallery-head{
+    border-bottom:12px solid transparent;
+    border-image:
+      repeating-linear-gradient(
+        90deg,
+        var(--rug-turq) 0 24px,
+        var(--rug-gold) 24px 48px,
+        var(--rug-rust) 48px 72px,
+        var(--rug-sand) 72px 96px
+      ) 12;
+    padding-bottom:18px;
+  }
+
+  .location .trail-item::before{
+    width:11px;
+    height:11px;
+    border-radius:0;
+    transform:rotate(45deg);
+    background:var(--rug-turq);
+  }
+
+  .reviews{
+    background:
+      linear-gradient(rgba(244,233,210,.96), rgba(244,233,210,.96)),
+      repeating-linear-gradient(
+        45deg,
+        transparent 0 22px,
+        rgba(40,127,122,.08) 22px 24px,
+        transparent 24px 46px,
+        rgba(217,169,58,.08) 46px 48px
+      );
+  }
+
+  .booking{
+    position:relative;
+    border-top:none;
+  }
+
+  .booking::before{
+    content:"";
+    position:absolute;
+    top:0; left:0; right:0;
+    height:34px;
+    background:
+      linear-gradient(135deg, transparent 0 35%, var(--rug-gold) 36% 48%, transparent 49%) 0 0/34px 34px,
+      linear-gradient(45deg, transparent 0 35%, var(--rug-turq) 36% 48%, transparent 49%) 17px 0/34px 34px,
+      var(--rug-rust);
+  }
+
+  footer{
+    background:
+      linear-gradient(rgba(23,33,27,.96), rgba(23,33,27,.96)),
+      repeating-linear-gradient(
+        90deg,
+        var(--rug-turq) 0 18px,
+        var(--rug-gold) 18px 36px,
+        var(--rug-rust) 36px 54px,
+        transparent 54px 72px
+      );
+    border-top:8px solid var(--rug-gold);
+    padding-top:44px;
+  }
+
+  footer::before{
+    content:"◆  ◇  ◆  ◇  ◆";
+    font-size:18px;
+    letter-spacing:.3em;
+    color:var(--rug-gold);
+    margin-bottom:18px;
+  }
+
+
+  /* v7 — Chimayó-inspired turquoise/earth palette
+     Inspired by New Mexican woven textile rhythm and color balance,
+     without copying any one historic textile pattern. */
+
+  :root{
+    --chimayo-turq:#2B8C87;
+    --chimayo-turq-dark:#1F6D69;
+    --chimayo-ochre:#D3A23B;
+    --chimayo-rust:#A45E3B;
+    --chimayo-cream:#F3E6C8;
+    --chimayo-sand:#DFC9A1;
+    --chimayo-brown:#3A2C22;
+    --chimayo-charcoal:#211C18;
+  }
+
+  .chimayo-band{
+    height:46px;
+    background:
+      linear-gradient(135deg, transparent 0 36%, var(--chimayo-turq) 37% 48%, transparent 49%) 0 0/46px 46px,
+      linear-gradient(45deg, transparent 0 36%, var(--chimayo-ochre) 37% 48%, transparent 49%) 23px 0/46px 46px,
+      linear-gradient(90deg,
+        transparent 0 14%,
+        var(--chimayo-rust) 14% 20%,
+        transparent 20% 38%,
+        var(--chimayo-brown) 38% 44%,
+        transparent 44% 62%,
+        var(--chimayo-rust) 62% 68%,
+        transparent 68% 86%,
+        var(--chimayo-turq-dark) 86% 92%,
+        transparent 92% 100%) 0 0/92px 46px,
+      var(--chimayo-cream);
+    border-top:1px solid rgba(58,44,34,.2);
+    border-bottom:1px solid rgba(58,44,34,.2);
+  }
+
+  .chimayo-medallion{
+    position:relative;
+    padding-bottom:22px;
+  }
+
+  .chimayo-medallion::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:0;
+    width:150px;
+    height:12px;
+    transform:translateX(-50%);
+    background:
+      linear-gradient(135deg, transparent 0 35%, var(--chimayo-turq) 36% 49%, transparent 50%) 0 0/30px 12px,
+      linear-gradient(45deg, transparent 0 35%, var(--chimayo-ochre) 36% 49%, transparent 50%) 15px 0/30px 12px;
+  }
+
+  .story,
+  .gallery{
+    background-color:var(--chimayo-cream);
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        rgba(43,140,135,.028) 0 1px,
+        transparent 1px 20px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(164,94,59,.024) 0 1px,
+        transparent 1px 20px
+      );
+  }
+
+  .location{
+    background:
+      linear-gradient(rgba(223,201,161,.92), rgba(223,201,161,.92)),
+      repeating-linear-gradient(
+        45deg,
+        transparent 0 28px,
+        rgba(43,140,135,.06) 28px 30px,
+        transparent 30px 58px,
+        rgba(211,162,59,.05) 58px 60px
+      );
+  }
+
+  .amenities{
+    background:var(--chimayo-brown);
+  }
+
+  .amenity{
+    background:rgba(33,28,24,.42);
+  }
+
+  .amenity:nth-child(odd){
+    box-shadow:inset 0 4px 0 var(--chimayo-turq);
+  }
+
+  .amenity:nth-child(even){
+    box-shadow:inset 0 4px 0 var(--chimayo-ochre);
+  }
+
+  .gallery-grid .photo{
+    outline:4px double rgba(43,140,135,.42);
+    outline-offset:-8px;
+  }
+
+  .gallery-grid .photo:nth-child(even){
+    outline-color:rgba(211,162,59,.48);
+  }
+
+  .reviews{
+    background:
+      linear-gradient(rgba(243,230,200,.96), rgba(243,230,200,.96)),
+      repeating-linear-gradient(
+        90deg,
+        transparent 0 36px,
+        rgba(43,140,135,.08) 36px 38px,
+        transparent 38px 74px,
+        rgba(164,94,59,.07) 74px 76px
+      );
+  }
+
+  .booking{
+    background:var(--chimayo-charcoal);
+  }
+
+  .booking::before{
+    height:40px;
+    background:
+      linear-gradient(135deg, transparent 0 36%, var(--chimayo-turq) 37% 48%, transparent 49%) 0 0/40px 40px,
+      linear-gradient(45deg, transparent 0 36%, var(--chimayo-ochre) 37% 48%, transparent 49%) 20px 0/40px 40px,
+      var(--chimayo-rust);
+  }
+
+  .btn-primary{
+    background:var(--chimayo-rust);
+  }
+
+  .btn-primary:hover{
+    background:#874C31;
+  }
+
+  .nav-cta{
+    border-color:var(--chimayo-ochre);
+    color:var(--chimayo-ochre);
+  }
+
+  footer{
+    background:
+      linear-gradient(rgba(33,28,24,.98), rgba(33,28,24,.98)),
+      repeating-linear-gradient(
+        90deg,
+        var(--chimayo-turq) 0 16px,
+        var(--chimayo-ochre) 16px 32px,
+        var(--chimayo-rust) 32px 48px,
+        var(--chimayo-cream) 48px 64px
+      );
+    border-top:10px solid var(--chimayo-ochre);
+  }
+
+  footer::before{
+    content:"◆ ◇ ◆ ◇ ◆";
+    color:var(--chimayo-turq);
+    letter-spacing:.42em;
+  }
+
+
+  /* v8 — woven textile surface treatment
+     Replaces grid/crosshatch backgrounds with softer warp-and-weft fabric texture. */
+
+  .story,
+  .gallery{
+    background-color:var(--chimayo-cream);
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        rgba(58,44,34,.028) 0 2px,
+        transparent 2px 7px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(43,140,135,.022) 0 1px,
+        transparent 1px 9px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(211,162,59,.028),
+        transparent 22%,
+        rgba(164,94,59,.025) 48%,
+        transparent 76%,
+        rgba(43,140,135,.026)
+      );
+    background-blend-mode:multiply,normal,normal;
+  }
+
+  .location{
+    background-color:var(--chimayo-sand);
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        rgba(58,44,34,.035) 0 2px,
+        transparent 2px 8px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(243,230,200,.18) 0 3px,
+        transparent 3px 12px
+      ),
+      linear-gradient(
+        90deg,
+        rgba(43,140,135,.025),
+        rgba(211,162,59,.025) 50%,
+        rgba(164,94,59,.025)
+      );
+  }
+
+  .reviews{
+    background-color:var(--chimayo-cream);
+    background-image:
+      repeating-linear-gradient(
+        0deg,
+        rgba(58,44,34,.025) 0 1px,
+        transparent 1px 6px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(43,140,135,.018) 0 2px,
+        transparent 2px 11px
+      );
+  }
+
+  .amenities{
+    background:
+      repeating-linear-gradient(
+        0deg,
+        rgba(243,230,200,.018) 0 1px,
+        transparent 1px 7px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(211,162,59,.015) 0 2px,
+        transparent 2px 12px
+      ),
+      var(--chimayo-brown);
+  }
+
+  .booking{
+    background:
+      repeating-linear-gradient(
+        0deg,
+        rgba(243,230,200,.016) 0 1px,
+        transparent 1px 8px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(43,140,135,.014) 0 2px,
+        transparent 2px 13px
+      ),
+      var(--chimayo-charcoal);
+  }
+
+  footer{
+    background:
+      repeating-linear-gradient(
+        0deg,
+        rgba(243,230,200,.015) 0 1px,
+        transparent 1px 7px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(211,162,59,.012) 0 2px,
+        transparent 2px 10px
+      ),
+      var(--chimayo-charcoal);
+  }
+
+
+  /* v9 — clean header treatment: decorative header graphics removed */
+  header::before, header::after,
+  .hero::before, .hero::after,
+  .nav::before, .nav::after,
+  .hero h1::before, .hero h1::after {
+    content:none !important;
+    display:none !important;
+    background:none !important;
+  }
+
+
+  /* v10 — gallery-derived site header */
+  .site-gallery-header{
+    height:22px;
+    background:
+      repeating-linear-gradient(
+        90deg,
+        var(--chimayo-turq) 0 30px,
+        var(--chimayo-ochre) 30px 60px,
+        var(--chimayo-rust) 60px 90px,
+        var(--chimayo-cream) 90px 120px,
+        var(--chimayo-brown) 120px 150px,
+        var(--chimayo-cream) 150px 180px
+      );
+    border-bottom:4px double rgba(43,140,135,.55);
+    box-shadow:0 1px 0 rgba(58,44,34,.18);
+  }
+
+  header{
+    border-top:none !important;
+  }
+
+
+  /* v11 — remove decorative graphic below dates button */
+  .hero::after,
+  .hero-buttons::after,
+  .hero-inner::after {
+    content: none !important;
+    display: none !important;
+    background: none !important;
+  }
+
+
+  /* v12 — slimmer decorative graphics around site header */
+  .site-gallery-header {
+    height: 8px !important;
+    border-bottom-width: 1px !important;
+  }
+
+  header + .chimayo-band,
+  header + .rug-strip,
+  header + .folk-band,
+  header + .site-gallery-header {
+    height: 8px !important;
+    min-height: 8px !important;
+    border-top-width: 1px !important;
+    border-bottom-width: 1px !important;
+  }
+
+
+  /* v13 — replace green hero field with Jemez Mountains landscape */
+  .hero {
+    background:
+      linear-gradient(90deg, rgba(23,33,27,.74) 0%, rgba(23,33,27,.45) 48%, rgba(23,33,27,.16) 100%),
+      linear-gradient(0deg, rgba(23,33,27,.42) 0%, transparent 55%),
+      url('images/sky-cabin-exterior.jpg') center 48% / cover no-repeat !important;
+  }
+
+</style>
+
+<style>
+  .lead-copy { max-width: 700px; font-size: 1.08rem; line-height: 1.65; }
+  .practical-details { padding: 28px 0 34px; }
+  .practical-details p { max-width: 760px; font-size: .88rem; line-height: 1.65; opacity: .82; }
+  .practical-details .kicker { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 8px; }
+</style>
+
+</head>
+<body>
+<div class="site-gallery-header" aria-hidden="true"></div>
+
+<header>
+  <nav class="nav">
+    <div class="brand">Sky Cabin<span>.</span></div>
+    <ul>
+      <li><a href="#story">The cabin</a></li>
+      <li><a href="#amenities">Amenities</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#location">Location</a></li>
+      <li><a href="#book">Book</a></li>
+    </ul>
+    <a class="nav-cta" href="BOOKING_LINK_HERE">Check dates</a>
+  </nav>
+</header>
+<div class="chimayo-band" aria-hidden="true"></div>
+
+<!-- ============ HERO ============ -->
+
+<section class="practical-details">
+  <div class="wrap">
+    <div class="kicker">Cabin details</div>
+    </div>
+</section>
+<section class="hero">
+  <svg class="contour-lines" viewBox="0 0 1200 500" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M-50,420 C200,380 300,460 550,410 C800,360 900,440 1250,400" fill="none" stroke="#EEE7D6" stroke-width="1"/><path d="M-50,450 C220,410 320,480 560,440 C810,390 920,460 1250,430" fill="none" stroke="#EEE7D6" stroke-width="1"/><path d="M-50,480 C240,450 340,500 580,470 C820,430 940,490 1250,460" fill="none" stroke="#EEE7D6" stroke-width="1"/><path d="M-50,90 C180,60 280,120 500,80 C740,40 860,110 1250,70" fill="none" stroke="#EEE7D6" stroke-width="1"/><path d="M-50,60 C190,30 300,90 520,50 C760,10 880,80 1250,40" fill="none" stroke="#EEE7D6" stroke-width="1"/></svg>
+  <div class="hero-inner">
+    <div class="eyebrow">Jemez Mountains · near Albuquerque, New Mexico</div>
+    <h1>Sky Cabin</h1>
+    <p class="tagline">A hand-hewn high-desert hideaway beneath the Jemez Mountains — warm adobe tones, mountain air, and wide New Mexico sky.</p>
+    <div class="hero-buttons">
+      <a class="btn-primary" href="BOOKING_LINK_HERE">Check availability</a>
+      <a class="btn-ghost" href="#gallery">See photos</a>
+    </div>
+    <div class="hero-meta">
+      <div><strong>1</strong><span>bedroom</span></div>
+      <div><strong>[1]</strong><span>bathroom</span></div>
+      <div><strong>2–4</strong><span>guests</span></div>
+      <div><strong>[7,000]</strong><span>ft elevation</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="chimayo-band" aria-hidden="true"></div>
+
+<!-- ============ STORY ============ -->
+<section class="story" id="story">
+  <div class="wrap story-grid">
+    <div>
+      <div class="kicker folk-floral">The cabin</div>
+      <h2 class="rug-title">A mountain cabin with a New Mexico soul</h2>
+      <p>Set in the high desert east of Albuquerque, the cabin pairs mountain quiet with the warmth of New Mexico craft traditions. Think coffee on the porch, juniper and piñon in the air, and the Sandia skyline catching pink light at dusk.</p>
+      <p>Sky Cabin has metal siding and is relatively near neighboring homes while retaining a comfortable sense of privacy. Nights are very quiet and dark. The cabin is heated by baseboard heaters. Piñon and juniper firewood is provided for guests. There is no Wi-Fi at Sky Cabin, but cellular data service is available in the area. Pets are not allowed at Sky Cabin.</p>
+    </div>
+    <div class="photo real-photo" style="background-image:url('images/sky-cabin-exterior.jpg'); background-position:center;">
+      <span class="ph-label" style="display:none">Jemez Mountains near Albuquerque</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AMENITIES ============ -->
+<section class="amenities" id="amenities">
+  <div class="wrap">
+    <div class="folk-medallion" aria-hidden="true"></div>
+    <div class="kicker folk-floral">What's included</div>
+    <h2 class="rug-title">Everything you need, nothing you don't.</h2><div class="lozenge-rule" aria-hidden="true"></div>
+    <div class="amenity-grid">
+      <div class="amenity">
+        <span class="num">01</span>
+        <h3>[baseboard heaters / woodstove]</h3>
+        <p>[One line describing this amenity and any details a guest would want — e.g. piñon firewood provided, how it's lit.]</p>
+      </div>
+      <div class="amenity">
+        <span class="num">02</span>
+        <h3>[galley kitchen]</h3>
+        <p>[What's stocked — cookware, coffee gear, anything notable.]</p>
+      </div>
+      <div class="amenity">
+        <span class="num">03</span>
+        
+        <p>[Details — hours, seasonal availability, whether it's shared.]</p>
+      </div>
+      <div class="amenity">
+        <span class="num">04</span>
+        
+        <p>[What the outdoor space includes.]</p>
+      </div>
+      <div class="amenity">
+        <span class="num">05</span>
+        <h3>[No Wi-Fi + workspace]</h3>
+        <p>[Speed, whether it's reliable enough for calls, any dead zones.]</p>
+      </div>
+      <div class="amenity">
+        <span class="num">06</span>
+        <h3>[No pets]</h3>
+        <p>[Any conditions — fee, fenced area, leash rules.]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="gallery" id="gallery">
+  <div class="wrap">
+    <div class="gallery-head">
+      <h2 class="rug-title">Gallery</h2>
+      <p>Interior mood: adobe plaster, vigas, warm wood, woven textiles, and kiva-fireplace details.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="photo g1 real-photo" style="background-image:url('images/sky-cabin-exterior.jpg'); background-position:center;"><span class="ph-label" style="display:none">Adobe living room</span></div>
+      <div class="photo g2 real-photo" style="background-image:url('images/sky-cabin-exterior.jpg'); background-position:center;"><span class="ph-label" style="display:none">baseboard heaters interior</span></div>
+      <div class="photo g3 real-photo" style="background-image:url('images/sky-cabin-exterior.jpg'); background-position:center;"><span class="ph-label" style="display:none">Southwestern bedroom</span></div>
+      <div class="photo g4 real-photo" style="background-image:url('images/sky-cabin-exterior.jpg'); background-position:center;"><span class="ph-label" style="display:none">Viga ceiling interior</span></div>
+      <div class="photo g5 real-photo" style="background-image:url('images/sky-cabin-exterior.jpg'); background-position:center 60%;"><span class="ph-label" style="display:none">Adobe interior detail</span></div>
+      <div class="photo g6 real-photo" style="background-image:url('images/sky-cabin-exterior.jpg'); background-position:center 45%;"><span class="ph-label" style="display:none">Fireplace detail</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOCATION ============ -->
+<section class="location" id="location">
+  <div class="wrap location-grid">
+    <div>
+      <div class="kicker folk-floral">Getting here</div>
+<p class="location-note">Sky Cabin is tucked into the Jemez Mountains, about a 10-minute drive from Jemez Springs, the nearest town. The surrounding Jemez Mountains offer lots of nearby trails, along with both natural and developed hot springs to explore. Sky Cabin is about a 1 hour 15 minute drive from either Santa Fe or Albuquerque International Sunport. The final approach to Sky Cabin is along a rustic gravel road, part of the cabin’s mountain setting.</p>
+      <h2 class="rug-title">[Nearest town, New Mexico]</h2>
+      <p>[A short paragraph on the setting — how remote or accessible it is, what the drive from the highway is like, what's nearby.]</p>
+      <div class="trail">
+        <div class="trail-item">
+          <span class="mi">[0.5 mi]</span>
+          <h4>[Trailhead or forest road name]</h4>
+          <p>[One line on what's there.]</p>
+        </div>
+        <div class="trail-item">
+          <span class="mi">[3 mi]</span>
+          <h4>[River / hot spring / landmark]</h4>
+          <p>[One line on what's there.]</p>
+        </div>
+        <div class="trail-item">
+          <span class="mi">[6 mi]</span>
+          <h4>[Town plaza — coffee, groceries]</h4>
+          <p>[One line on what's there.]</p>
+        </div>
+        <div class="trail-item">
+          <span class="mi">[70 mi]</span>
+          <h4>[Albuquerque / Santa Fe airport]</h4>
+          <p>[One line on what's there.]</p>
+        </div>
+      </div>
+    </div>
+    <div class="photo real-photo" style="background-image:url('images/sky-cabin-exterior.jpg'); background-position:center;">
+      <span class="ph-label" style="display:none">Jemez Mountains, Albuquerque</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section class="reviews">
+  <div class="wrap">
+    <div class="kicker">From past guests</div>
+    <blockquote>"[Pull a short, real quote from a past guest review once you have one. Until then, leave this section as a placeholder or remove it.]"</blockquote>
+    <cite>— [Guest first name], stayed [Month Year]</cite>
+  </div>
+</section>
+
+<!-- ============ BOOKING ============ -->
+<section class="booking" id="book">
+  <div class="wrap">
+    <div class="kicker" style="justify-content:center; display:flex; color:var(--brass);">Ready when you are</div>
+    <h2 class="rug-title">Come stay at Sky Cabin.</h2>
+    <p>Pick your dates and send a request below — we read every one ourselves and usually get back to you within a day.</p>
+    <div class="booking-steps">
+      <div class="booking-step">
+        <span class="bs-num">01</span>
+        <p>Check the calendar and pick your dates</p>
+      </div>
+      <div class="booking-step">
+        <span class="bs-num">02</span>
+        <p>Send a request with your dates and headcount</p>
+      </div>
+      <div class="booking-step">
+        <span class="bs-num">03</span>
+        <p>We confirm and send you everything you need for check-in</p>
+      </div>
+    </div>
+    <a class="btn-primary" href="BOOKING_LINK_HERE">Check availability</a>
+    <p style="font-size:13px; color:rgba(238,231,214,0.55); margin-top:16px;">Questions before you book? Reach out any time — we're happy to help you plan the stay.</p>
+    <div class="booking-details">
+      <span>[email@example.com]</span>
+      <span>[phone number]</span>
+      <span>[Instagram handle]</span>
+    </div>
+  </div>
+</section>
+
+<div class="chimayo-band" aria-hidden="true"></div>
+<footer>
+  &copy; <span id="year"></span> Sky Cabin. Built with care in New Mexico.<br>
+  <span style="font-size:11px;">Landscape imagery: PerryPlanet / Wikimedia Commons (public domain); BrandonStephenson / Wikimedia Commons (Public Domain Mark). Folk ornament is an original CSS pattern inspired by New Mexico vernacular decorative geometry.</span>
+ Cabin photo: Josh Hild / Pexels.</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
