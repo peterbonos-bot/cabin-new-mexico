@@ -1179,6 +1179,14 @@
       url('images/sky-cabin-exterior.jpg') center 48% / cover no-repeat !important;
   }
 
+
+/* Sky Cabin virtual tour */
+.virtual-tour{padding:85px 0 95px;background:#f3e2b8;text-align:center}
+.virtual-tour .rug-title{margin:10px auto 14px;max-width:780px}
+.virtual-tour .tour-intro{max-width:630px;margin:0 auto 28px}
+.virtual-tour video{display:block;width:100%;max-width:940px;max-height:75vh;aspect-ratio:16/9;object-fit:contain;background:#241f16;border:7px solid #3b2a22;border-radius:5px;box-shadow:0 16px 32px #3b2a2226;margin:auto}
+.virtual-tour .tour-note{font-size:13px;margin-top:15px;opacity:.75}
+@media(max-width:600px){.virtual-tour{padding:50px 0 60px}.virtual-tour video{border-width:3px}}
 </style>
 
 <style>
@@ -1199,6 +1207,7 @@
       <li><a href="#story">The cabin</a></li>
       <li><a href="#amenities">Amenities</a></li>
       <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#virtual-tour">Virtual tour</a></li>
       <li><a href="#location">Location</a></li>
       <li><a href="booking.html">Booking inquiry</a></li>
     </ul>
@@ -1300,12 +1309,12 @@
       <p>Interior mood: adobe plaster, vigas, warm wood, woven textiles, and kiva-fireplace details.</p>
     </div>
     <div class="gallery-grid">
-      <div class="photo g1 real-photo" style="background-image:url('images/sky-cabin-exterior.jpg'); background-position:center;"><span class="ph-label" style="display:none">Adobe living room</span></div>
-      <div class="photo g2 real-photo" style="background-image:url('images/sky-cabin-exterior.jpg'); background-position:center;"><span class="ph-label" style="display:none">baseboard heaters interior</span></div>
+      <div class="photo g1 real-photo" style="background-image:url('images/SkyCabinBackExterior.jpg'); background-position:center;"><span class="ph-label" style="display:none">Back exterior</span></div>
+      <div class="photo g2 real-photo" style="background-image:url('images/SkyCabinSunset.jpg'); background-position:center;"><span class="ph-label" style="display:none">Sunset</span></div>
       <div class="photo g3 real-photo" style="background-image:url('images/sky-cabin-exterior.jpg'); background-position:center;"><span class="ph-label" style="display:none">Southwestern bedroom</span></div>
       <div class="photo g4 real-photo" style="background-image:url('images/sky-cabin-exterior.jpg'); background-position:center;"><span class="ph-label" style="display:none">Viga ceiling interior</span></div>
-      <div class="photo g5 real-photo" style="background-image:url('images/sky-cabin-exterior.jpg'); background-position:center 60%;"><span class="ph-label" style="display:none">Adobe interior detail</span></div>
-      <div class="photo g6 real-photo" style="background-image:url('images/sky-cabin-exterior.jpg'); background-position:center 45%;"><span class="ph-label" style="display:none">Fireplace detail</span></div>
+      <div class="photo g5 real-photo" style="background-image:url('images/SkyCabinBackExterior.jpg'); background-position:center 60%;"><span class="ph-label" style="display:none">Adobe interior detail</span></div>
+      <div class="photo g6 real-photo" style="background-image:url('images/SkyCabinSunset.jpg'); background-position:center 45%;"><span class="ph-label" style="display:none">Fireplace detail</span></div>
     </div>
   </div>
 </section>
@@ -1347,6 +1356,19 @@
   </div>
 </section>
 
+<!-- ============ VIRTUAL TOUR ============ -->
+<section id="virtual-tour" class="virtual-tour" aria-labelledby="tour-heading">
+  <div class="wrap">
+    <div class="kicker">Explore before you arrive</div>
+    <h2 id="tour-heading" class="rug-title">Take a look around Sky Cabin.</h2>
+    <p class="tour-intro">Step inside and explore the cabin at your own pace. Press play to watch the virtual tour.</p>
+    <video controls preload="none" playsinline poster="images/SkyCabinBackExterior.jpg" aria-label="Video tour of Sky Cabin">
+      <source src="images/SkyCabinTour.mp4" type="video/mp4">
+      Your browser does not support embedded video. <a href="images/SkyCabinTour.mp4">Open the virtual tour video</a>.
+    </video>
+    <p class="tour-note">The tour is hosted with this website. Playback uses your browser's video controls.</p>
+  </div>
+</section>
 <!-- ============ REVIEWS ============ -->
 <section class="reviews">
   <div class="wrap">
