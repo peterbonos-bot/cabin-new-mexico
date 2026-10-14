@@ -1187,6 +1187,18 @@
 .virtual-tour video{display:block;width:100%;max-width:940px;max-height:75vh;aspect-ratio:16/9;object-fit:contain;background:#241f16;border:7px solid #3b2a22;border-radius:5px;box-shadow:0 16px 32px #3b2a2226;margin:auto}
 .virtual-tour .tour-note{font-size:13px;margin-top:15px;opacity:.75}
 @media(max-width:600px){.virtual-tour{padding:50px 0 60px}.virtual-tour video{border-width:3px}}
+
+.gallery-zoom{display:block;cursor:zoom-in;transition:filter .18s ease,transform .18s ease}
+.gallery-zoom:hover{filter:brightness(1.1)}
+.gallery-zoom:focus-visible{outline:3px solid #238b8e;outline-offset:4px}
+.photo-lightbox{position:fixed;inset:0;z-index:9999;background:rgba(10,12,12,.94);display:none;align-items:center;justify-content:center;padding:56px 24px 70px}
+.photo-lightbox[aria-hidden="false"]{display:flex}
+.photo-lightbox img{max-width:100%;max-height:calc(100vh - 125px);object-fit:contain}
+.photo-lightbox button{position:absolute;background:rgba(255,255,255,.15);color:white;border:1px solid rgba(255,255,255,.35);border-radius:50%;width:44px;height:44px;font-size:26px;cursor:pointer}
+.photo-lightbox .close-lightbox{top:14px;right:18px}
+.photo-lightbox .prev-photo{left:12px;top:50%}
+.photo-lightbox .next-photo{right:12px;top:50%}
+.photo-lightbox figcaption{position:absolute;bottom:18px;color:white;text-align:center;left:65px;right:65px;font-size:14px}
 </style>
 
 <style>
@@ -1300,12 +1312,12 @@
       <p>Sky Cabin and the changing seasons in the Jemez Mountains.</p>
     </div>
     <div class="gallery-grid">
-      <div class="photo g1 real-photo" style="background-image:url('images/SkyCabinBackExterior.jpg'); background-position:center;"><span class="ph-label" style="display:none">Back exterior</span></div>
-      <div class="photo g2 real-photo" style="background-image:url('images/SkyCabinSunset.jpg'); background-position:center;"><span class="ph-label" style="display:none">Sunset</span></div>
-      <div class="photo g3 real-photo" role="img" aria-label="Jemez Mountains in winter" style="background-image:url('images/JemezMtsWinter.jpeg'); background-position:center;"></div>
-      <div class="photo g4 real-photo" style="background-image:url('images/SkyCabinBackExterior.jpg'); background-position:center;"><span class="ph-label" style="display:none">Viga ceiling interior</span></div>
-      <div class="photo g5 real-photo" style="background-image:url('images/SkyCabinBackExterior.jpg'); background-position:center 60%;"><span class="ph-label" style="display:none">Adobe interior detail</span></div>
-      <div class="photo g6 real-photo" style="background-image:url('images/SkyCabinSunset.jpg'); background-position:center 45%;"><span class="ph-label" style="display:none">Fireplace detail</span></div>
+      <a class="photo g1 real-photo gallery-zoom" href="images/SkyCabinBackExterior.jpg" data-caption="Sky Cabin back exterior" aria-label="Enlarge: Sky Cabin back exterior" style="background-image:url('images/SkyCabinBackExterior.jpg'); background-position:center;"></a>
+      <a class="photo g2 real-photo gallery-zoom" href="images/SkyCabinSunset.jpg" data-caption="Sky Cabin at sunset" aria-label="Enlarge: Sky Cabin at sunset" style="background-image:url('images/SkyCabinSunset.jpg'); background-position:center;"></a>
+      <a class="photo g3 real-photo gallery-zoom" href="images/JemezMtsWinter.jpeg" data-caption="Jemez Mountains in winter" aria-label="Enlarge: Jemez Mountains in winter" style="background-image:url('images/JemezMtsWinter.jpeg'); background-position:center;"></a>
+      <a class="photo g4 real-photo gallery-zoom" href="images/SkyCabinBackExterior.jpg" data-caption="Sky Cabin back exterior" aria-label="Enlarge: Sky Cabin back exterior" style="background-image:url('images/SkyCabinBackExterior.jpg'); background-position:center;"></a>
+      <a class="photo g5 real-photo gallery-zoom" href="images/SkyCabinBackExterior.jpg" data-caption="Sky Cabin back exterior" aria-label="Enlarge: Sky Cabin back exterior" style="background-image:url('images/SkyCabinBackExterior.jpg'); background-position:center;"></a>
+      <a class="photo g6 real-photo gallery-zoom" href="images/SkyCabinSunset.jpg" data-caption="Sky Cabin at sunset" aria-label="Enlarge: Sky Cabin at sunset" style="background-image:url('images/SkyCabinSunset.jpg'); background-position:center;"></a>
     </div>
   </div>
 </section>
@@ -1399,5 +1411,25 @@
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 
+<div class="photo-lightbox" id="photo-lightbox" role="dialog" aria-modal="true" aria-label="Enlarged gallery photo" aria-hidden="true">
+<button type="button" class="close-lightbox" aria-label="Close photo">×</button>
+<button type="button" class="prev-photo" aria-label="Previous photo">‹</button>
+<img alt=""><figcaption></figcaption>
+<button type="button" class="next-photo" aria-label="Next photo">›</button>
+</div>
+<script>
+(function(){
+ const links=[...document.querySelectorAll('.gallery-zoom')],modal=document.getElementById('photo-lightbox'),img=modal.querySelector('img'),caption=modal.querySelector('figcaption');let active=0,lastFocus=null;
+ function show(i){active=(i+links.length)%links.length;img.src=links[active].getAttribute('href');img.alt=links[active].dataset.caption;caption.textContent=links[active].dataset.caption;}
+ function open(i){lastFocus=document.activeElement;show(i);modal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';modal.querySelector('.close-lightbox').focus();}
+ function close(){modal.setAttribute('aria-hidden','true');document.body.style.overflow='';img.removeAttribute('src');if(lastFocus)lastFocus.focus();}
+ links.forEach((link,i)=>link.addEventListener('click',e=>{e.preventDefault();open(i)}));
+ modal.querySelector('.close-lightbox').addEventListener('click',close);
+ modal.querySelector('.prev-photo').addEventListener('click',()=>show(active-1));
+ modal.querySelector('.next-photo').addEventListener('click',()=>show(active+1));
+ modal.addEventListener('click',e=>{if(e.target===modal)close()});
+ document.addEventListener('keydown',e=>{if(modal.getAttribute('aria-hidden')==='true')return;if(e.key==='Escape')close();if(e.key==='ArrowLeft')show(active-1);if(e.key==='ArrowRight')show(active+1)});
+})();
+</script>
 </body>
 </html>
