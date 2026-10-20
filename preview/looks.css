@@ -1,0 +1,64 @@
+
+/* Three preview-only art directions, using the same photographs and content. */
+html[data-look="mesa"]{--ink:#3b3023;--muted:#51402d;--teal:#78442c;--rust:#733a29;--cream:#d9b16d;--line:#8b673b66}
+html[data-look="mesa"] body{background-image:var(--grain),linear-gradient(120deg,#d7a465e6,#b87751eb),url('../images/Sky/SunsetSky2.jpg')}
+html[data-look="mesa"] .site-header{background-image:var(--grain),linear-gradient(110deg,#713f2be8,#a0653ee8),url('../images/Sky/JemezClouds.jpg');color:#f0cd8a}
+html[data-look="mesa"] .panorama-title,html[data-look="mesa"] .gallery-intro,html[data-look="mesa"] .destination-intro{background-image:var(--grain),linear-gradient(110deg,#d4965bdc,#dfb36de3 60%,#bf7858e0),url('../images/Sky/JemezClouds.jpg')}
+html[data-look="mesa"] #gallery,html[data-look="mesa"] #guest-info,html[data-look="mesa"] .booking-main{background-image:var(--grain),linear-gradient(135deg,#ce8c5ee8,#d9b773e8),url('../images/Sky/SunsetSky3.jpg')}
+html[data-look="mesa"] .details,html[data-look="mesa"] #location{background-image:var(--grain),linear-gradient(120deg,#abb17fdf,#d1ac6ce6),url('../images/Sky/CanyonClouds.jpg')}
+html[data-look="mesa"] .panorama-title h1{font-family:Georgia,serif;font-weight:400;letter-spacing:-.055em}
+html[data-look="mesa"] .button{background:#7e492e;border-color:#7e492e;color:#f2d398}
+html[data-look="mesa"] .button.light{background:#e2b86b;color:#3b3023;border-color:#e2b86b}
+html[data-look="mesa"] .split .eyebrow,html[data-look="mesa"] .panorama-title .eyebrow{color:#683c25}
+html[data-look="mesa"] footer{background-image:var(--grain),linear-gradient(110deg,#693e2d,#754c32)}
+html[data-look="mesa"] .gallery-section#exterior,html[data-look="mesa"] .gallery-section#interior{background-image:linear-gradient(130deg,#cf9160e8,#dcb36ce8),url('../images/Sky/JemezClouds.jpg')}
+html[data-look="turquoise"]{--ink:#173f3d;--muted:#254f49;--teal:#175e5d;--rust:#71391f;--cream:#b3c390;--line:#2f635d66}
+html[data-look="turquoise"] body{background-image:var(--grain),linear-gradient(130deg,#69a69de6,#80b6a6e8 50%,#c29761e8),url('../images/Sky/Cat%20Mesa%202.jpg')}
+html[data-look="turquoise"] .site-header{background-image:var(--grain),linear-gradient(110deg,#15595de9,#247e76e8),url('../images/Sky/CanyonClouds.jpg');color:#efcf8e}
+html[data-look="turquoise"] .panorama-title,html[data-look="turquoise"] .gallery-intro,html[data-look="turquoise"] .destination-intro{background-image:var(--grain),linear-gradient(120deg,#66b1aad8,#8ebaa3df 60%,#d6b16ed4),url('../images/Sky/Cat%20Mesa%202.jpg')}
+html[data-look="turquoise"] .panorama-title h1{font-weight:600;font-size:clamp(70px,8vw,115px);letter-spacing:-.04em}
+html[data-look="turquoise"] #gallery,html[data-look="turquoise"] .gallery-section#exterior{background-image:var(--grain),linear-gradient(135deg,#c98d5fe6,#dfb579e5),url('../images/Sky/SunsetSky3.jpg')}
+html[data-look="turquoise"] .details,html[data-look="turquoise"] #location,html[data-look="turquoise"] .gallery-section#interior{background-image:var(--grain),linear-gradient(130deg,#7eb3a7e8,#9eb994e6),url('../images/Sky/CanyonClouds.jpg')}
+html[data-look="turquoise"] .button{background:#1c6865;border-color:#1c6865;color:#f1d79f;box-shadow:inset 0 -3px #c98e50}
+html[data-look="turquoise"] .woven{height:15px;background:repeating-linear-gradient(90deg,#246f69 0 24px,#d6b365 24px 30px,#985737 30px 43px,#759a79 43px 50px)}
+html[data-look="turquoise"] h2{letter-spacing:-.025em}html[data-look="turquoise"] .category img{border-bottom:5px solid #a26639}
+html[data-look="turquoise"] .sky-feature:after{background:linear-gradient(100deg,#105051e8,#265c71a6 57%,#b8764140)}
+html[data-look="twilight"]{--ink:#efd29d;--muted:#d9bd9a;--teal:#b88162;--rust:#edbd81;--cream:#33475e;--gold:#c8a16d;--line:#e6c69744}
+html[data-look="twilight"] body{background-color:#2b3f52;background-image:var(--grain),linear-gradient(140deg,#243e57e6,#55465fe8 55%,#77504ce6),url('../images/Sky/SunsetSky2.jpg')}
+html[data-look="twilight"] .site-header{background-image:var(--grain),linear-gradient(110deg,#213b52e6,#51425ce6),url('../images/Sky/Cabin-stars.jpg');color:#eccc93}
+html[data-look="twilight"] .panorama-title,html[data-look="twilight"] .gallery-intro,html[data-look="twilight"] .destination-intro{background-image:var(--grain),linear-gradient(110deg,#2b4b66d9,#62506bd4 60%,#a46c4ac9),url('../images/Sky/SunsetSky2.jpg')}
+html[data-look="twilight"] .panorama-title h1{font-style:italic;letter-spacing:-.04em;font-weight:400}
+html[data-look="twilight"] .facts{background:linear-gradient(100deg,#48535b,#765a53);color:#eed09b}
+html[data-look="twilight"] #gallery,html[data-look="twilight"] .gallery-section#exterior,html[data-look="twilight"] .destination-group#village{background-image:var(--grain),linear-gradient(130deg,#69505de6,#906044e8),url('../images/Sky/SunsetSky1.jpg')}
+html[data-look="twilight"] .details,html[data-look="twilight"] #location,html[data-look="twilight"] .gallery-section#environment,html[data-look="twilight"] .destination-group#landscape{background-image:var(--grain),linear-gradient(130deg,#304f59e8,#41635de3),url('../images/Sky/CanyonClouds.jpg')}
+html[data-look="twilight"] .interior-story,html[data-look="twilight"] #guest-info,html[data-look="twilight"] .gallery-section#interior,html[data-look="twilight"] .destination-group#bernalillo{background-image:var(--grain),linear-gradient(140deg,#62526de5,#8b614fe6),url('../images/Sky/SunsetSky3.jpg')}
+html[data-look="twilight"] .gallery-section#sky,html[data-look="twilight"] .gallery-section#region{background-image:linear-gradient(135deg,#324a68e5,#5a4e6ee5),url('../images/Sky/CatMesaRainbow.jpg')}
+html[data-look="twilight"] .booking-main{background-image:var(--grain),linear-gradient(140deg,#34515fdc,#65516bdc),url('../images/Sky/SunsetSky2.jpg')}
+html[data-look="twilight"] .booking-main form{background:linear-gradient(135deg,#4d5962,#756051)}html[data-look="twilight"] .booking-main section{background:linear-gradient(130deg,#3d5a5b,#5f6459)!important}
+html[data-look="twilight"] .field input,html[data-look="twilight"] .field select,html[data-look="twilight"] .field textarea{background:#a98e6c;color:#172d2a;border-color:#d1b281}
+html[data-look="twilight"] .button{background:#cfaa75;color:#243d45;border-color:#cfaa75}
+html[data-look="twilight"] .sky-feature:after{background:linear-gradient(105deg,#253852e6,#554b6aab 60%,#a8714c33)}
+html[data-look="twilight"] .booking-banner:after{background:linear-gradient(105deg,#493651e6,#5a456ac2 55%,#bd81474d)}
+html[data-look="twilight"] .split p,html[data-look="twilight"] .section-head>p,html[data-look="twilight"] .category p,html[data-look="twilight"] .rules p,html[data-look="twilight"] .amenity p,html[data-look="twilight"] .destination-row p,html[data-look="twilight"] .location-list,html[data-look="twilight"] .intro-columns{color:#e3c6a0}
+html[data-look="twilight"] .split .eyebrow,html[data-look="twilight"] .panorama-title .eyebrow,html[data-look="twilight"] .destination-row .eyebrow,html[data-look="twilight"] .number,html[data-look="twilight"] .destination-number{color:#efbf85}
+html[data-look="twilight"] .gallery-filter-buttons button,html[data-look="twilight"] .gallery-nav a,html[data-look="twilight"] .destination-jump a{background:#56616b;color:#f0d49f;border-color:#ceb181}
+html[data-look="twilight"] .gallery-filter-buttons button[aria-pressed="true"]{background:#c99e6b;color:#213b41}
+html[data-look="twilight"] .photo-tile span,html[data-look="twilight"] .split figcaption,html[data-look="twilight"] .panorama figcaption,html[data-look="twilight"] .gallery-result,html[data-look="twilight"] .note{color:#e6cba1}
+html[data-look="twilight"] .photo-tile{background:#87694b33;border-color:#c6ad7c55}html[data-look="twilight"] footer{background-image:var(--grain),linear-gradient(115deg,#233b4c,#3c3e55)}
+html[data-look="twilight"] .error{color:#ffd297}
+.look-switcher{position:relative;z-index:5;display:flex;align-items:center;gap:12px;justify-content:center;flex-wrap:wrap;padding:12px 20px;background:#253e38;color:#eed099;font-size:12px;border-bottom:1px solid #c1a06e}.look-switcher a{padding:4px 9px;text-decoration:none;border:1px solid #b89c6855}.look-switcher a[aria-current]{background:#d4b477;color:#253e38}.look-switcher span{font-weight:650}
+@media(max-width:600px){html[data-look="mesa"] .panorama-title h1,html[data-look="turquoise"] .panorama-title h1,html[data-look="twilight"] .panorama-title h1{font-size:72px}.look-switcher{gap:7px;font-size:10px}}
+
+/* Follow the landscape vertically: sky, vegetated mesas, then mineral earth. */
+html[data-look="mesa"]{--sky-top:#8eb4c9a6;--sky-bottom:#e4b87bdb;--hill-top:#b7b58cde;--hill-bottom:#bca171ef;--soil-top:#cd946fe8;--soil-bottom:#b57b55f2;--bedrock:#563625df;--ground-ink:#382b22}
+html[data-look="turquoise"]{--sky-top:#72b7caa3;--sky-bottom:#9fc5b5d9;--hill-top:#91b79bdc;--hill-bottom:#b4b17aef;--soil-top:#d3a071e3;--soil-bottom:#bc8258f0;--bedrock:#64412ce0;--ground-ink:#253c32}
+html[data-look="twilight"]{--sky-top:#294c72b8;--sky-bottom:#756384dd;--hill-top:#375d61e3;--hill-bottom:#63694de8;--soil-top:#77554be6;--soil-bottom:#604035f2;--bedrock:#302722e8;--ground-ink:#efd29d}
+html[data-look] body{background-image:var(--grain),linear-gradient(to bottom,var(--sky-bottom) 0%,var(--hill-top) 35%,var(--hill-bottom) 65%,var(--soil-top) 85%,var(--soil-bottom) 100%);background-size:180px 180px,100% 100%;background-repeat:repeat,no-repeat}
+html[data-look] [data-terrain="sky"]{background-image:var(--grain),linear-gradient(175deg,var(--sky-top),var(--sky-bottom)),url('../images/Sky/JemezClouds.jpg')!important;background-size:180px 180px,cover,cover;background-position:center,center,center 35%;color:var(--ink)}
+html[data-look] .site-header[data-terrain]{background-position:center,center,center 10%;color:var(--ink)}
+html[data-look] [data-terrain="mountain"]{background-image:var(--grain),linear-gradient(180deg,var(--hill-top),var(--hill-bottom)),url('../images/Cabin%20Environment/JemezCanyon%2C.jpg')!important;background-size:180px 180px,cover,cover;background-position:center,center,center 65%}
+html[data-look] [data-terrain="earth"]{background-image:var(--grain),linear-gradient(175deg,var(--soil-top),var(--soil-bottom)),url('../images/Cabin%20Environment/Ground.jpg')!important;background-size:180px 180px,cover,900px auto;background-position:center;color:var(--ground-ink)}
+html[data-look] footer[data-terrain]{background-image:var(--grain),linear-gradient(var(--bedrock),var(--bedrock)),url('../images/Cabin%20Environment/Ground.jpg')!important;color:#f1d4a1}
+html[data-look] .booking-banner[data-terrain]:after{background:linear-gradient(105deg,var(--bedrock),#543323b8 65%,#6b422a66)}
+html[data-look] [data-terrain="descent"]{background-image:var(--grain),linear-gradient(to bottom,var(--sky-top),var(--hill-top) 45%,var(--soil-top)),url('../images/Cabin%20Environment/JemezCanyon%2C.jpg')!important;background-size:180px 180px,cover,cover;background-position:center}
+html[data-look] .booking-banner{color:#f2d6a3}
