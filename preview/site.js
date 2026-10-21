@@ -10,3 +10,36 @@ const aliases={inside:'interior',outside:'exterior',destinations:'region'};const
 (()=>{const preference=matchMedia('(prefers-reduced-motion: reduce)');document.querySelectorAll('.sky-feature').forEach(section=>{const slides=[...section.querySelectorAll('.slide')],button=section.querySelector('.slideshow-toggle');if(slides.length<2||!button)return;let active=0,paused=preference.matches,visible=false,timer=null;button.hidden=false;function sync(){clearInterval(timer);timer=null;button.textContent=paused?'Play slideshow ▷':'Pause slideshow Ⅱ';button.setAttribute('aria-label',paused?'Play background slideshow':'Pause background slideshow');button.setAttribute('aria-pressed',String(paused));if(!paused&&visible&&!document.hidden)timer=setInterval(()=>{slides[active].classList.remove('active');active=(active+1)%slides.length;slides[active].classList.add('active')},8000)}button.onclick=()=>{paused=!paused;sync()};document.addEventListener('visibilitychange',sync);preference.addEventListener('change',()=>{paused=preference.matches;sync()});if('IntersectionObserver' in window){const watcher=new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;sync()},{threshold:.1});watcher.observe(section)}else{visible=true}sync()});
 // Progressive enhancement: photographs remain visible if JavaScript is unavailable.
 if(!preference.matches&&'IntersectionObserver' in window){const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.remove('pending');entry.target.classList.add('ready');observer.unobserve(entry.target)}})},{threshold:.08,rootMargin:'0px 0px -20px 0px'});document.querySelectorAll('.split figure,.category,.photo-tile').forEach(el=>{if(el.getBoundingClientRect().top>innerHeight){el.classList.add('photo-reveal','pending');observer.observe(el)}})}})();
+// Open background slideshows as an accessible full-screen photo viewer.
+(()=>{
+ const sections=[...document.querySelectorAll('.sky-feature')];
+ if(!sections.length)return;
+ const style=document.createElement('style');
+ style.textContent='.slideshow-expand{position:absolute;left:22px;bottom:18px;border:1px solid #efd39b99;background:#243e35e8;color:#efd39b;padding:8px 12px;font:12px system-ui;cursor:zoom-in}.sky-feature{cursor:zoom-in}.sky-feature a,.sky-feature button{cursor:pointer}.slideshow-viewer{position:fixed;inset:0;margin:0;border:0;width:100%;height:100dvh;max-width:none;max-height:none;padding:65px 45px 75px;background:#172a25;color:#efd39b}.slideshow-viewer::backdrop{background:#172a25}.slideshow-viewer img{display:block;width:100%;height:100%;object-fit:contain}.slideshow-viewer button{border:1px solid #efd39b88;background:#294a3e;color:#efd39b;padding:10px 14px;cursor:pointer}.slideshow-viewer .viewer-close{position:absolute;right:18px;top:15px}.slideshow-viewer .viewer-prev{position:absolute;left:5px;top:48%}.slideshow-viewer .viewer-next{position:absolute;right:5px;top:48%}.viewer-controls{position:absolute;bottom:18px;left:0;right:0;display:flex;justify-content:center;align-items:center;gap:20px;font:13px system-ui}@media(max-width:600px){.slideshow-expand{left:18px;font-size:10px}.slideshow-viewer{padding:65px 35px 75px}}';
+ document.head.append(style);
+ const viewer=document.createElement('dialog');
+ viewer.className='slideshow-viewer';viewer.setAttribute('aria-label','Full-screen slideshow');
+ viewer.innerHTML='<button class="viewer-close" type="button" aria-label="Close slideshow">Close ×</button><img alt=""><button class="viewer-prev" type="button" aria-label="Previous photograph">‹</button><button class="viewer-next" type="button" aria-label="Next photograph">›</button><div class="viewer-controls"><button class="viewer-play" type="button">Pause</button><span class="viewer-count"></span></div>';
+ document.body.append(viewer);
+ const photo=viewer.querySelector('img'),play=viewer.querySelector('.viewer-play'),count=viewer.querySelector('.viewer-count');
+ let photos=[],index=0,paused=false,timer=null,opener=null,background=null,resume=false,overflow='';
+ function show(n){index=(n+photos.length)%photos.length;photo.src=photos[index].src;photo.alt=photos[index].alt||'Sky Cabin landscape photograph '+(index+1);count.textContent=(index+1)+' / '+photos.length;}
+ function sync(){clearInterval(timer);play.textContent=paused?'Play ▷':'Pause Ⅱ';play.setAttribute('aria-label',paused?'Play full-screen slideshow':'Pause full-screen slideshow');if(viewer.open&&!paused&&!document.hidden)timer=setInterval(()=>show(index+1),8000);}
+ function close(){if(document.fullscreenElement===viewer)document.exitFullscreen().catch(()=>{});viewer.close();}
+ viewer.querySelector('.viewer-close').onclick=close;
+ viewer.querySelector('.viewer-prev').onclick=()=>{show(index-1);sync()};
+ viewer.querySelector('.viewer-next').onclick=()=>{show(index+1);sync()};
+ play.onclick=()=>{paused=!paused;sync()};
+ viewer.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();show(index+(e.key==='ArrowRight'?1:-1));sync()}});
+ viewer.addEventListener('cancel',e=>{e.preventDefault();close()});
+ viewer.addEventListener('close',()=>{clearInterval(timer);document.body.style.overflow=overflow;if(resume&&background?.getAttribute('aria-pressed')==='true')background.click();opener?.focus();photo.removeAttribute('src')});
+ document.addEventListener('visibilitychange',sync);
+ document.addEventListener('fullscreenchange',()=>{if(viewer.open&&!document.fullscreenElement&&viewer.dataset.native==='true'){viewer.dataset.native='false';viewer.close()}});
+ sections.forEach(section=>{
+  const slides=[...section.querySelectorAll('.slide')];if(slides.length<2)return;
+  const expand=document.createElement('button');expand.type='button';expand.className='slideshow-expand';expand.textContent='View Full Screen ⛶';section.append(expand);
+  function open(){photos=slides;opener=expand;background=section.querySelector('.slideshow-toggle');resume=background?.getAttribute('aria-pressed')==='false';if(resume)background.click();paused=matchMedia('(prefers-reduced-motion: reduce)').matches;overflow=document.body.style.overflow;document.body.style.overflow='hidden';show(Math.max(0,slides.findIndex(s=>s.classList.contains('active'))));viewer.dataset.native='false';viewer.showModal();viewer.querySelector('.viewer-close').focus();sync();if(viewer.requestFullscreen)viewer.requestFullscreen().then(()=>{viewer.dataset.native='true'}).catch(()=>{});}
+  expand.onclick=open;
+  section.addEventListener('click',e=>{if(!e.target.closest('a,button,input,select,textarea'))open()});
+ });
+})();
