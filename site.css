@@ -11,3 +11,43 @@ body{background-color:var(--cream);background-image:url("data:image/svg+xml,%3Cs
 @media(prefers-reduced-motion:reduce){.slides img,.photo-reveal.ready{transition:none}.photo-reveal.pending{opacity:1;transform:none}}
 
 .destination-jump{display:flex;gap:12px;flex-wrap:wrap;margin-top:35px}.destination-jump a{font-size:12px;border:1px solid var(--line);padding:10px 15px;text-decoration:none;background:#faf4e53d}.destination-group{padding-top:75px;padding-bottom:25px}.destination-links{display:flex;gap:12px 24px;flex-wrap:wrap}.destination-links a{font-size:12px}.destination-row h3{overflow-wrap:anywhere}.destination-row .eyebrow{line-height:1.7}.destination-group:last-of-type{padding-bottom:70px}
+
+/* Sky photographs beneath mineral-color gradients: no white page or form surfaces. */
+:root{--cream:#d9b677;--ink:#20382f;--teal:#245c55;--rust:#793d26;--gold:#d8a94f;--line:#746e4a66;--muted:#354b3e;--grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='grain'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.76' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' opacity='.07' filter='url(%23grain)'/%3E%3C/svg%3E")}
+body{background-color:#c59a60;background-image:var(--grain),linear-gradient(135deg,#d6ae74ed,#c38e60eb 56%,#80a393e6),url('images/Sky/SunsetSky2.jpg');background-size:180px 180px,cover,cover;background-position:center;background-repeat:repeat,no-repeat,no-repeat}
+.site-header{max-width:none;background-image:var(--grain),linear-gradient(110deg,#225a54ed,#456d5fe8),url('images/Sky/CanyonClouds.jpg');background-size:180px 180px,cover,cover;background-position:center;color:#f0d295;border-bottom:1px solid #c2a462}
+nav a:last-child{border-color:currentColor}.woven{opacity:1;background-color:#bf8c4f}
+.panorama-title{background-image:var(--grain),linear-gradient(115deg,#72aaa0eb 0%,#9db99ae8 48%,#d8ae68db 100%),url('images/Sky/JemezClouds.jpg');background-position:center;background-size:180px 180px,cover,cover}
+.panorama-title .eyebrow{color:#334c38}.facts{max-width:none;background:linear-gradient(95deg,#d8ad61e8,#bb9565e8);color:#20382f}
+.wrap.section:not(.destination-group){border-color:var(--line)}
+#gallery{background-image:var(--grain),linear-gradient(140deg,#cf9767ee,#d9b779e8),url('images/Sky/SunsetSky3.jpg');background-size:180px 180px,cover,cover;background-position:center}
+.details{background-image:var(--grain),linear-gradient(120deg,#87a78cef,#b7b981e8),url('images/Sky/Cat%20Mesa%202.jpg');background-size:180px 180px,cover,cover;background-position:center}
+.interior-story{background-image:var(--grain),linear-gradient(130deg,#d6a568ee,#c18c61ee),url('images/Sky/SunsetSky1.jpg');background-size:180px 180px,cover,cover;background-position:center}
+#location{background-image:linear-gradient(130deg,#78a99bdc,#b3b788e6),url('images/Sky/CanyonClouds.jpg');background-size:cover;background-position:center}
+#guest-info{background-image:linear-gradient(135deg,#d2a660eb,#d9bc76f2),url('images/Sky/JemezClouds.jpg');background-size:cover;background-position:center}
+.sky-feature:after{background:linear-gradient(100deg,#153e3be8 0%,#3c546ca6 55%,#b96b3b40 100%)}
+.booking-banner:after{background:linear-gradient(105deg,#6a342de8 0%,#5b4b69c4 55%,#bd81474d 100%)}
+.button.light{background:#e1b86d;color:#263b30;border-color:#e1b86d}.tour{background-image:var(--grain),linear-gradient(110deg,#234c48,#465b53)}
+.gallery-intro,.destination-intro{background-image:var(--grain),linear-gradient(120deg,#81aaa3ed,#b6b28fe0 60%,#cf9b68dc),url('images/Sky/Rainbow-clouds.jpg');background-position:center;background-size:180px 180px,cover,cover}
+.gallery-section{padding-left:5vw;padding-right:5vw}
+.gallery-section#sky{background-image:linear-gradient(130deg,#82aaa1e8,#9fb49be8),url('images/Sky/Cat%20Mesa%20Clouds.jpg')}
+.gallery-section#exterior{background-image:linear-gradient(130deg,#cf986fe8,#d8b77ae8),url('images/Sky/SunsetSky3.jpg')}
+.gallery-section#interior{background-image:linear-gradient(135deg,#d6b268ed,#c89b60ed),url('images/Sky/JemezClouds.jpg')}
+.gallery-section#environment{background-image:linear-gradient(135deg,#93ac80ed,#b6b887e8),url('images/Sky/CanyonClouds.jpg')}
+.gallery-section#region{background-image:linear-gradient(135deg,#b2a18aed,#cfab7ae8),url('images/Sky/CatMesaRainbow.jpg')}
+.gallery-section{background-size:cover;background-position:center}.gallery-nav a,.destination-jump a{background:#d5b07199;border-color:#516a52;color:#233d30}
+.photo-tile img{background:#b7a274}.photo-tile span,.split figcaption,.panorama figcaption{color:#344c3c}
+.destination-group{background-size:cover;background-position:center}.destination-group#village{background-image:linear-gradient(140deg,#d0a370ed,#cfb87be8),url('images/Sky/JemezClouds.jpg')}.destination-group#landscape{background-image:linear-gradient(140deg,#89aa91ed,#b3b78ae8),url('images/Sky/CanyonClouds.jpg')}.destination-group#bernalillo{background-image:linear-gradient(140deg,#ce946eed,#d3ae77e8),url('images/Sky/SunsetSky1.jpg')}
+.booking-main{background-image:var(--grain),linear-gradient(145deg,#8eaf96e8,#c8b17fe8),url('images/Sky/JemezClouds.jpg');background-position:center;background-size:180px 180px,cover,cover}
+.booking-main form{background:linear-gradient(135deg,#d2a466,#d8b77c);border:1px solid #8b7448}.booking-main section{background:linear-gradient(135deg,#91ad80,#b6b582)!important}
+.field input,.field select,.field textarea{background:#e3c78a;color:#20382f;border-color:#786e45}.field input::placeholder,.field textarea::placeholder{color:#5b6047;opacity:1}.field select option{background:#e3c78a;color:#20382f}.error{color:#842b22}.skip{background:#e0b668;color:#20382f}
+footer{background-image:var(--grain),linear-gradient(115deg,#204c46,#385b4c);color:#e8c887}
+.eyebrow,.brand span,.panorama-hero figcaption{text-transform:none;letter-spacing:.05em}.eyebrow{font-size:12px}.brand span{font-size:11px}
+@media(max-width:600px){.gallery-section{padding-left:22px;padding-right:22px}.sky-feature:after{background:linear-gradient(110deg,#153e3be8,#3c546cd6)}.booking-banner:after{background:linear-gradient(110deg,#67382de8,#514565dd)}}
+
+/* A gallery viewer styled to the cabin palette, with natural image proportions. */
+[hidden]{display:none!important}.gallery-controls{margin-top:26px;border-top:1px solid #365f4f66;border-bottom:1px solid #365f4f66;padding:18px 0 12px}.gallery-filter-buttons{display:flex;gap:9px;flex-wrap:wrap}.gallery-filter-buttons button{padding:9px 15px;background:#d5b67dbb;color:#203d33;border:1px solid #557258;font-size:12px;cursor:pointer;border-radius:2px}.gallery-filter-buttons button[aria-pressed="true"]{background:#285d55;color:#f1d39b;border-color:#285d55;box-shadow:inset 0 -3px 0 #c89e54}.gallery-filter-buttons button:hover{filter:brightness(1.08)}.gallery-result{margin:13px 0 0;font-size:11px;color:#354b3e}.photo-tile{position:relative;padding:9px 9px 12px;background:#c8a36c33;border:1px solid #665a3733;box-shadow:0 4px 12px #32462c12}.photo-tile img{border:0;box-shadow:none}.photo-tile span{padding:0 3px;line-height:1.5}.photo-tile:after{content:'View Photo ↗';position:absolute;right:18px;top:18px;font-size:10px;padding:4px 7px;background:#24483de6;color:#f1d39b;opacity:0;transition:opacity .2s}.photo-tile:hover:after,.photo-tile:focus-visible:after{opacity:1}.photo-tile.small{width:85%}.lightbox{background:radial-gradient(ellipse at center,#36544a,#142f2c 80%);color:#efcf91}.lightbox .photo-collection{position:absolute;left:24px;top:23px;font:18px Georgia,serif}.lightbox button{background:#315b50;color:#f1d39b;border-color:#d0ad6c99;border-radius:2px}.lightbox figcaption{color:#efcf91}.lightbox img{box-shadow:0 12px 60px #0005}.lightbox figure{background:transparent}
+@media(max-width:600px){.gallery-filter-buttons{gap:8px}.gallery-filter-buttons button{font-size:11px;padding:9px 11px}.photo-tile:after{opacity:1}.lightbox .photo-collection{font-size:15px;left:15px;max-width:60%;top:25px}.lightbox .close{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.photo-tile:after{transition:none}}
+
+.drive-times{padding-top:35px;padding-bottom:22px}.drive-grid{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:16px 0}.drive-grid>div{padding:22px 20px;border-right:1px solid var(--line)}.drive-grid>div:last-child{border:0}.drive-grid strong{display:block;font:32px Georgia,serif;margin-bottom:8px}.drive-grid span{font-size:14px}.drive-times .note{margin:12px 0 0}@media(max-width:600px){.drive-grid strong{font-size:24px}.drive-grid>div{padding:18px 10px}.drive-grid span{font-size:12px}}
